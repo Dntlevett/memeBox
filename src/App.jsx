@@ -33,7 +33,11 @@ function App() {
 
   return (
     <div className="main-container">
-      <h1>MeMeBoX</h1>
+      <div className="main-container__title">MeMeBoX</div>
+      {/* <div className="main-container__description">
+        "MemeMe: Click for instant, random laughs from a diverse collection of
+        memes – no login required!"
+      </div> */}
       <img src={`${selectedMeme.url}`} alt="" className="main-form__image" />
       <form
         onSubmit={(event) => {
@@ -41,7 +45,7 @@ function App() {
         }}
         className="main-form"
       >
-        <button className="main-form__button"></button>
+        <button className="main-form__button">CLICK ME</button>
       </form>
     </div>
   );
