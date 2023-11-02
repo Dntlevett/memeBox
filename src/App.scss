@@ -1,0 +1,21 @@
+// import React from 'react';
+// const StylishButton = () => {
+//   return (
+//     <button className="main-form__button>Click Me</button>
+//   );
+// };
+// export default StylishButton;
+
+.main-container {
+  background-color: chartreuse;
+}
+.main-form__button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
