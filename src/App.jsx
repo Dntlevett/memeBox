@@ -27,27 +27,47 @@ function App() {
       console.log(response.data.url);
     };
     getMemes();
+  }
 
-    // alert("video test");
+  async function handleUpload(event) {
+    event.preventDefault();
+    let url = event.target.url.value;
+    const uploadMeme = await axios.post(`http://localhost:5050/upload`, {
+      url,
+    });
   }
 
   return (
-    <div className="main-container">
-      <div className="main-container__title">MeMeBoX</div>
-      {/* <div className="main-container__description">
-        "MemeMe: Click for instant, random laughs from a diverse collection of
-        memes – no login required!"
-      </div> */}
-      <img src={`${selectedMeme.url}`} alt="" className="main-form__image" />
-      <form
-        onSubmit={(event) => {
-          handlePushButton(event);
-        }}
-        className="main-form"
-      >
-        <button className="main-form__button">CLICK ME</button>
-      </form>
-    </div>
+    <>
+      <div className="main-container">
+        <div className="main-container__title">MeMeBoX</div>
+        <img src={`${selectedMeme.url}`} alt="" className="main-form__image" />
+        <form
+          onSubmit={(event) => {
+            handlePushButton(event);
+          }}
+          className="main-form"
+        >
+          <button className="main-form__button">CLICK ME</button>
+        </form>
+      </div>
+      <div className="spaceholder"></div>
+      <div className="uploadsec">
+        <form onSubmit={handleUpload} className="uploadsec__form">
+          <input
+            className="uploadsec__input"
+            name="url"
+            placeholder="Add a meme URL"
+          ></input>
+          <button className="uploadsec__button">UPLOAD URL</button>
+        </form>
+        {/* <img
+          src={`${selectedMeme.url}`}
+          alt=""
+          className="uploadsec__img"
+        ></img> */}
+      </div>
+    </>
   );
 }
 
